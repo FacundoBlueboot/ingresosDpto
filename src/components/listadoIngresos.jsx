@@ -1,4 +1,13 @@
 import { useState, useEffect } from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+
 
 const ListadoIngresos = () => {
   const [ingresos, setIngresos] = useState([]);
@@ -14,30 +23,37 @@ const ListadoIngresos = () => {
   }, []);
 
   return (
-    <div className="bg-white p-4 ">
-      <h2>Listado de Ingresos</h2>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Detalle Persona</th>
-            <th>Fecha Ingreso</th>
-            <th>Fecha Salida</th>
-            <th>Monto por Noche</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ingresos.map((ingreso) => (
-            <tr key={ingreso.id}>
-              <td>{ingreso.id}</td>
-              <td>{ingreso.detallePersona}</td>
-              <td>{ingreso.fechaIngreso}</td>
-              <td>{ingreso.fechaSalida}</td>
-              <td>{ingreso.montoNoche}</td>
-            </tr>
+    <div className="p-4 w-full mx-auto">
+      <h2 className='ml-4 uppercase tracking-wide text-gray-700 text-s font-bold'>Listado de Ingresos</h2>
+      <TableContainer component={Paper} className='mt-5'>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>ID</TableCell>
+            <TableCell align="left">Detalle</TableCell>
+            <TableCell align="left">Ingreso</TableCell>
+            <TableCell align="left">Egreso</TableCell>
+            <TableCell align="left">Monto</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {ingresos.map((row) => (
+            <TableRow
+              key={row.id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.id}
+              </TableCell>
+              <TableCell align="left">{row.detallePersona}</TableCell>
+              <TableCell align="left">{row.fechaIngreso}</TableCell>
+              <TableCell align="left">{row.fechaSalida}</TableCell>
+              <TableCell align="left">{row.montoNoche}</TableCell>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
+    </TableContainer>
     </div>
   );
 };

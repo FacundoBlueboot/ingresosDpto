@@ -67,7 +67,7 @@ const IngresoForm = () => {
 
   return (
     <>
-    <form className="mt-5 w-full max-w-max">
+    <form className="mt-5 w-full max-w-max mx-auto">
       <div className="flex flex-wrap -mx-3 mb-3">
         <div className="w-full px-3">
           <label className="block uppercase tracking-wide text-gray-700 text-s font-bold mb-2">

@@ -7,12 +7,12 @@ function App() {
   return (
     <>
       <Header />
-      <div className="container mx-5">
-        <div className="flex flex-row justify-between">
-          <div className="col-md-6">
+      <div className="w-full">
+        <div className="flex flex-row">
+          <div className="w-1/2">
             <IngresoForm />
           </div>
-          <div className="col-md-6">
+          <div className="w-1/2">
             <ListadoIngresos />
           </div>
         </div>
